@@ -33,7 +33,7 @@ class Input:
                 self.review_amount, self.stars3, self.stars4, self.stars5]
 
 
-def __process_input(request_data: str) -> np.array:
+def process_input(request_data: str) -> np.array:
     """
     Creates a processing function to transform inputs to the expected
     format.

@@ -2,7 +2,7 @@ import json
 import pickle
 from flask import Flask, request
 
-from input_processor import __process_input
+from utils.input_processor import process_input
 from database import Database
 database = Database()
 
@@ -17,7 +17,7 @@ def predict() -> str:
     user_input = request.data
     output = None
     try:
-        inputs_data = __process_input(user_input)
+        inputs_data = process_input(user_input)
         predictions = classifier.predict(inputs_data)
         result = [round(float(prediction), 2) for prediction in predictions]
         output = json.dumps({"predicted_prices": result})
